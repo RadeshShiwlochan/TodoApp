@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Items from './Items';
+import AddItem from './AddItem';
 
 export default class TodoApp extends React.Component {
 	constructor(props) {
@@ -16,7 +17,8 @@ export default class TodoApp extends React.Component {
           <Navbar />
           <Items
           items={this.state.items} 
-          count={this.state.items.length}/>
+          count={this.state.items.length} />
+          <AddItem />
         </div>
 	  )
 	}
