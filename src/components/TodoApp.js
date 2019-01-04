@@ -4,11 +4,15 @@ import Items from './Items';
 import AddItem from './AddItem';
 
 export default class TodoApp extends React.Component {
-	constructor(props) {
-	  super(props);
-	  this.state = {
-  		items: ['eat dinner', 'watch some tv']
-  	}
+	state = {
+		items: []
+	}	
+	handleAddToItems = (item) => {
+	  this.setState((prevState) => {
+        return {
+        	items: prevState.items.concat(item)
+        }
+	  });
 	}
 	render() {
 	  return (
@@ -18,7 +22,7 @@ export default class TodoApp extends React.Component {
           <Items
           items={this.state.items} 
           count={this.state.items.length} />
-          <AddItem />
+          <AddItem addItem={this.handleAddToItems}/>
         </div>
 	  )
 	}
