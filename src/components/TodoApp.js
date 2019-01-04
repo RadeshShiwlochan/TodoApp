@@ -14,11 +14,19 @@ export default class TodoApp extends React.Component {
         }
 	  });
 	}
+	handleDeleteAllItems = () => {
+		this.setState(() => {
+			return {
+				items: []
+			}
+		});
+	}
 	render() {
 	  return (
         <div>
           <h1>TodoApp</h1>
           <Navbar />
+					<button onClick={this.handleDeleteAllItems}>Delete All Items</button>
           <Items
           items={this.state.items} 
           count={this.state.items.length} />
