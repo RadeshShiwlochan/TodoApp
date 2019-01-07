@@ -2,11 +2,14 @@ import React from 'react';
 import Navbar from './Navbar';
 import Items from './Items';
 import AddItem from './AddItem';
+import ItemsModal from './ItemsModal';
 
 export default class TodoApp extends React.Component {
 	state = {
+		addingItemToList: false,
 		items: []
 	}	
+
 	handleAddToItems = (item) => {
 	  this.setState((prevState) => {
         return {
@@ -14,6 +17,7 @@ export default class TodoApp extends React.Component {
         }
 	  });
 	}
+
 	handleDeleteAllItems = () => {
 		this.setState(() => {
 			return {
@@ -21,10 +25,10 @@ export default class TodoApp extends React.Component {
 			}
 		});
 	}
+
 	render() {
 	  return (
         <div>
-          <h1>TodoApp</h1>
           <Navbar />
 					<button onClick={this.handleDeleteAllItems}>Delete All Items</button>
           <Items

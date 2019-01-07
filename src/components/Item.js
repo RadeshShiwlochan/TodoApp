@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Item = (props) => {
-  return (<li>{props.thingToDo}
+  return (
+    <li>
+      {props.thingToDo}
   	</li>
   )
 }
