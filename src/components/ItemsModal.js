@@ -3,12 +3,13 @@ import Modal from 'react-modal';
 
 const ItemsModal = (props) => (
     <Modal
-    isOpen={false}
-    contentLabel="Add Items"
-    //onRequestClose={props}
+      isOpen={props.switchOnOff}
+      contentLabel="Add Items"
     >
-    <h3>Add Items To Do to the List</h3>
-    
+      <h3>Add Items To Do to the List</h3>
+      <button onClick={props.addItemsToList}>
+        Done Adding Items to List
+      </button>
     </Modal>
 )
 

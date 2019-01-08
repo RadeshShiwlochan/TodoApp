@@ -26,15 +26,40 @@ export default class TodoApp extends React.Component {
 		});
 	}
 
+	handleOpenModal = () => {
+		console.log('open');
+	  this.setState((prevState) => {
+			return {
+				addingItemToList: !prevState.addingItemToList
+			}
+		})
+	}
+
+	handleCloseModal = () => {
+		console.log('Clicked');
+		this.setState(() => {
+			return {
+				addingItemToList: false
+			}
+		})
+	}
+	
+
 	render() {
 	  return (
         <div>
           <Navbar />
-					<button onClick={this.handleDeleteAllItems}>Delete All Items</button>
-          <Items
-          items={this.state.items} 
-          count={this.state.items.length} />
-          <AddItem addItem={this.handleAddToItems}/>
+					<div className="container">
+					  <button onClick={this.handleDeleteAllItems}>Delete All Items</button>
+            <Items
+            items={this.state.items} 
+            count={this.state.items.length} />
+            <AddItem addItem={this.handleAddToItems}/>
+					  <button onClick={this.handleOpenModal}>Add Items to List</button>
+					</div>
+					<ItemsModal
+					 swtichOnOff={this.state.addingItemToList} 
+					 addItemsToList={this.handleCloseModal}/>
         </div>
 	  )
 	}
