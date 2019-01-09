@@ -1,11 +1,7 @@
 import React from 'react';
 
 export default class AddItem extends React.Component {
-  constructor(props) {
-  	super(props);
-  	this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
   	e.preventDefault();
   	const item = e.target.elements.todo.value.trim();
   	this.props.addItem(item);

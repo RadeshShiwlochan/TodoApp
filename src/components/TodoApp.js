@@ -4,13 +4,14 @@ import Items from './Items';
 import AddItem from './AddItem';
 import ItemsModal from './ItemsModal';
 
-export default class TodoApp extends React.Component {
+class TodoApp extends React.Component {
 	state = {
 		addingItemToList: false,
 		items: []
 	}	
 
 	handleAddToItems = (item) => {
+		console.log('items');
 	  this.setState((prevState) => {
         return {
         	items: prevState.items.concat(item)
@@ -64,3 +65,5 @@ export default class TodoApp extends React.Component {
 	  )
 	}
 }
+
+export default TodoApp;
