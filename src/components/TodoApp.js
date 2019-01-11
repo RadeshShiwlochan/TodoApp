@@ -6,7 +6,7 @@ import ItemsModal from './ItemsModal';
 
 class TodoApp extends React.Component {
 	state = {
-		addingItemToList: false,
+		addingItemToList: undefined,
 		items: []
 	}	
 
@@ -31,22 +31,17 @@ class TodoApp extends React.Component {
 		console.log('open');
 	  this.setState((prevState) => {
 			return {
-				addingItemToList: !prevState.addingItemToList
+				addingItemToList: !prevState.addItemsToList
 			}
 		})
 	}
 
 	handleCloseModal = () => {
-		console.log('Clicked');
-		this.setState(() => {
-			return {
-				addingItemToList: false
-			}
-		})
+		console.log('closing')
+		this.setState(() => ({addingItemToList: undefined}))
 	}
 	
-
-	render() {
+render() {
 	  return (
         <div>
           <Navbar />
@@ -59,8 +54,8 @@ class TodoApp extends React.Component {
 					  <button onClick={this.handleOpenModal}>Add Items to List</button>
 					</div>
 					<ItemsModal
-					 swtichOnOff={this.state.addingItemToList} 
-					 addItemsToList={this.handleCloseModal}/>
+					 handleOpenModal={this.state.addingItemToList} 
+					 handleCloseModal={this.handleCloseModal} />
         </div>
 	  )
 	}
