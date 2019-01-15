@@ -5,6 +5,7 @@ const ItemsModal = (props) => (
    <Modal
     isOpen={!!props.handleOpenModal}
     contentLabel="Add Items"
+    onRequestClose={props.handleCloseModal}
     closeTimeoutMS={200}
     className="items-modal"
     >
